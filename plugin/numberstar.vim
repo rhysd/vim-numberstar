@@ -22,16 +22,16 @@ function! s:make_key_sequence(input)
     endif
 endfunction
 
-nnoremap <silent><expr><Plug>(number-star-*) <SID>make_key_sequence('*')
-nnoremap <silent><expr><Plug>(number-star-#) <SID>make_key_sequence('#')
-nnoremap <silent><expr><Plug>(number-star-g*) <SID>make_key_sequence('g*')
-nnoremap <silent><expr><Plug>(number-star-g#) <SID>make_key_sequence('g#')
+nnoremap <silent><expr><Plug>(numberstar-*) <SID>make_key_sequence('*')
+nnoremap <silent><expr><Plug>(numberstar-#) <SID>make_key_sequence('#')
+nnoremap <silent><expr><Plug>(numberstar-g*) <SID>make_key_sequence('g*')
+nnoremap <silent><expr><Plug>(numberstar-g#) <SID>make_key_sequence('g#')
 
 if ! get(g:, 'numberstar_no_default_mappings', 0)
-    nmap <silent>* <Plug>(number-star-*)
-    nmap <silent># <Plug>(number-star-#)
-    nmap <silent>g* <Plug>(number-star-g*)
-    nmap <silent>g# <Plug>(number-star-g#)
+    nmap <silent>* <Plug>(numberstar-*)
+    nmap <silent># <Plug>(numberstar-#)
+    nmap <silent>g* <Plug>(numberstar-g*)
+    nmap <silent>g# <Plug>(numberstar-g#)
 endif
 
 let g:loaded_numberstar = 1
