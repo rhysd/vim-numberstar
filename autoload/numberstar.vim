@@ -1,7 +1,3 @@
-if exists('g:loaded_numberstar')
-    finish
-endif
-
 function! s:cursor_number()
     let is_number = '\%(\%(\w\|[]})\"'."'".']\s*\)\@<!-\)\=\%(\<[[:digit:]_]\+\%(\.[[:digit:]_]\+\)\=\%([Ee][[:digit:]_]\+\)\=\>\|\<0[xXbBoOdD][[:xdigit:]_]\+\>\)'
     let [_, col]  = searchpos(is_number, 'bcn', line('.'))
@@ -10,7 +6,7 @@ endfunction
 
 let s:search_command = {'*' : '/', 'g*' : '/', '#' : '?', 'g#' : '?'}
 
-function! s:make_key_sequence(input)
+function! numberstar#key(input)
     let number = s:cursor_number()
     if number ==# ''
         return a:input
@@ -22,16 +18,3 @@ function! s:make_key_sequence(input)
     endif
 endfunction
 
-nnoremap <silent><expr><Plug>(numberstar-*) <SID>make_key_sequence('*')
-nnoremap <silent><expr><Plug>(numberstar-#) <SID>make_key_sequence('#')
-nnoremap <silent><expr><Plug>(numberstar-g*) <SID>make_key_sequence('g*')
-nnoremap <silent><expr><Plug>(numberstar-g#) <SID>make_key_sequence('g#')
-
-if ! get(g:, 'numberstar_no_default_mappings', 0)
-    nmap <silent>* <Plug>(numberstar-*)
-    nmap <silent># <Plug>(numberstar-#)
-    nmap <silent>g* <Plug>(numberstar-g*)
-    nmap <silent>g# <Plug>(numberstar-g#)
-endif
-
-let g:loaded_numberstar = 1

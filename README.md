@@ -5,4 +5,13 @@ I made this mapping because original `*` mapping can't match them and it's incon
 
 This plugin overrides `*`, `#`, `g*`, `g#` mappings in normal mode if `g:numberstar_no_default_mappings` is not equivalent to `1`.
 
+### Write in your vimrc
+
+```vim
+nnoremap <expr>*  numberstar#key('*')
+nnoremap <expr>#  numberstar#key('#')
+nnoremap <expr>g* numberstar#key('g*')
+nnoremap <expr>#* numberstar#key('#*')
+```
+
 This plugin is distributed under [the MIT License](http://opensource.org/licenses/MIT).
