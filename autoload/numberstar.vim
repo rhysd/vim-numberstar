@@ -14,7 +14,13 @@ endfunction
 let s:search_command = {'*' : '/', 'g*' : '/', '#' : '?', 'g#' : '?'}
 
 function! numberstar#key(input)
+    if ! has_key(s:search_command, a:input)
+        echoerr 'numberstar#key() got wrong input'
+        return ''
+    endif
+
     let number = s:cursor_number()
+
     if number ==# ''
         return a:input
     else
