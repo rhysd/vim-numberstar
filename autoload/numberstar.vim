@@ -7,8 +7,9 @@ function! s:cursor_number()
     let cursor = col('.') - 1
     if begin == -1 || end == -1 || ! (begin <= cursor && cursor <= end)
         return ''
+    else
+        return line[begin:end]
     endif
-    return matchstr(line, is_number, col-1)
 endfunction
 
 let s:search_command = {'*' : '/', 'g*' : '/', '#' : '?', 'g#' : '?'}
