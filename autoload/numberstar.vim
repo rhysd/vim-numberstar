@@ -8,7 +8,7 @@ function! s:cursor_number()
     if begin == -1 || end == -1 || ! (begin <= cursor && cursor <= end)
         return ''
     else
-        return line[begin:end]
+        return line[begin : end]
     endif
 endfunction
 
